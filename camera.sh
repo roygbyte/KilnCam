@@ -20,6 +20,7 @@ SFTFPASS=""
 SFTPUSER=""
 SFTPPORT=""
 SFTPFOLDER=""
+SFTPURL=""
 
 MAX_IMAGES=5
 
@@ -35,7 +36,7 @@ fswebcam -r $RES $DIR/images/$IMAGE
 echo "------------------------"
 echo "Uploading to FTP"
 
-sshpass -p $SFTPPASS sftp -oPort=$SFTPPORT $SFTPUSER@scarlettmcallister.com:$SFTPFOLDER << DELIM
+sshpass -p $SFTPPASS sftp -oPort=$SFTPPORT $SFTPUSER@$SFTPURL:$SFTPFOLDER << DELIM
 	rm *
 	put -r $DIR/images/*
 	quit
